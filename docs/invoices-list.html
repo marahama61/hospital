@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>المستشفى الذكي — قائمة الفواتير</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/admin.css" />
+    <style>
+      .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .data-table-container {
+        background: var(--card-bg);
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        box-shadow: 0 4px 12px rgba(11, 35, 64, 0.04);
+        overflow-x: auto;
+        padding: 20px;
+      }
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: right;
+        font-size: 14px;
+      }
+      .data-table th {
+        background: #f8fafc;
+        padding: 14px;
+        color: #51607a;
+        font-weight: 700;
+        border-bottom: 2px solid var(--border);
+      }
+      .data-table td {
+        padding: 14px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text);
+      }
+      .data-table tr:hover {
+        background: #f1f5f9;
+      }
+      .badge {
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 700;
+        display: inline-block;
+        text-align: center;
+        min-width: 80px;
+      }
+      .badge.success {
+        background: #dcfce7;
+        color: #15803d;
+      }
+      .badge.warning {
+        background: #fef3c7;
+        color: #b45309;
+      }
+      .badge.danger {
+        background: #fee2e2;
+        color: #b91c1c;
+      }
+    </style>
+  </head>
+  <body>
+    <header style="border-radius: 0 0 12px 12px">
+      <div class="logo-box">
+        <div class="header-text">
+          <h1>
+            <i class="fa-solid fa-file-invoice-dollar"></i> السجل المالي
+            والفواتير
+          </h1>
+        </div>
+      </div>
+      <div>
+        <a
+          href="manager-dashboard.html"
+          class="btn ghost"
+          style="
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-color: transparent;
+            text-decoration: none;
+          "
+        >
+          <i class="fa-solid fa-arrow-right"></i> عودة للوحة المدير
+        </a>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="page-header">
+        <h2 style="margin: 0; color: var(--text)">جميع الفواتير الصادرة</h2>
+      </div>
+
+      <div class="data-table-container">
+        <div
+          id="loading-overlay"
+          style="
+            text-align: center;
+            padding: 40px;
+            font-weight: 700;
+            color: #51607a;
+          "
+        >
+          جاري تحميل البيانات المالية...
+        </div>
+        <table class="data-table" id="invoices-table" style="display: none">
+          <thead>
+            <tr>
+              <th>رقم الفاتورة</th>
+              <th>رقم المريض</th>
+              <th>المبلغ الإجمالي</th>
+              <th>مبلغ التأمين</th>
+              <th>المبلغ المطلوب</th>
+              <th>الحالة</th>
+              <th>تفاصيل العناصر</th>
+            </tr>
+          </thead>
+          <tbody id="invoices-tbody"></tbody>
+        </table>
+        <div id="pager" class="pager"></div>
+      </div>
+    </main>
+
+    <script src="js/token-utils.js"></script>
+    <script src="js/auth-fetch.js"></script>
+    <script src="js/invoices-list.js"></script>
+  </body>
+</html>

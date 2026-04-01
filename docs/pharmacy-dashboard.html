@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>المستشفى الذكي — لوحة الصيدلية</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/pharmacy.css" />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="شريط التنقل">
+      <ul>
+        <div>
+          <li>
+            <a
+              href="inventory.html"
+              class="btn success small"
+              style="color: white; text-decoration: none; padding: 6px 12px"
+            >
+              إدارة الأدوية والمخزون
+            </a>
+          </li>
+        </div>
+        <li class="nav-dropdown-container" id="userMenuRoot">
+          <button
+            type="button"
+            class="nav-btn"
+            id="accountSettingsBtn"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            إعدادات الحساب <span class="nav-btn-arrow">▼</span>
+          </button>
+          <div class="user-dropdown" id="userDropdown" role="menu">
+            <button id="btn-change-password" type="button">
+              <span>تغيير كلمة المرور</span>
+            </button>
+            <div class="dropdown-separator"></div>
+            <button id="btn-logout" type="button" class="danger">
+              <span>تسجيل الخروج</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <header>
+      <div class="logo-box">
+        <img src="images/logo.jpeg" alt="لوجو المستشفى" class="logo" />
+        <div>
+          <div class="hospital-name">مستشفى المغتربين</div>
+          <div class="hospital-sub" dir="ltr">Al-Mughtaribeen Hospital</div>
+        </div>
+      </div>
+      <div class="header-text" role="banner">
+        <h1>لوحة تحكم الصيدلية</h1>
+        <p>إدارة الروشتات الطبية وصرف الأدوية للمرضى</p>
+      </div>
+      <div class="clock-box" style="text-align: center; min-width: 100px">
+        <div style="font-weight: 700; font-size: 13px; opacity: 0.9">
+          بتوقيت السودان
+        </div>
+        <div
+          id="clock"
+          style="margin-top: 4px; font-weight: 700; font-size: 18px"
+        >
+          --:--
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="grid" style="margin-top: 10px">
+        <div class="panel">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              flex-wrap: wrap;
+              gap: 10px;
+            "
+          >
+            <h2 style="color: #33415a; margin: 0">الروشتات الطبية الواردة</h2>
+            <button class="btn ghost" id="refreshPrescriptionsBtn">
+              تحديث البيانات
+            </button>
+          </div>
+
+          <hr
+            style="margin: 16px 0; border: none; border-top: 1px solid #eef3fb"
+          />
+
+          <div
+            id="prescriptions-list"
+            class="orders-grid"
+            style="margin-top: 16px"
+          >
+            <p style="color: #51607a; font-size: 14px">
+              جاري تحميل الروشتات...
+            </p>
+          </div>
+
+          <div id="prescriptions-pager" class="appointments-pager"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="changePassModal" class="modal-backdrop" aria-hidden="true">
+      <div
+        class="modal"
+        id="changePassModalContent"
+        style="max-width: 480px"
+      ></div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <footer class="footer">
+      <p style="margin: 0">جميع الحقوق محفوظة © 2026 مستشفى المغتربين</p>
+    </footer>
+
+    <script src="js/token-utils.js"></script>
+    <script src="js/auth-fetch.js"></script>
+    <script src="js/app-init.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/pharmacy-dashboard.js"></script>
+  </body>
+</html>
