@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>منصة حجز المستشفى — الأطباء</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/patient-dashboard.css" />
+    <link rel="stylesheet" href="css/doctors.css" />
+  </head>
+
+  <body>
+    <nav class="navbar" aria-label="شريط التنقل">
+      <ul>
+        <li>
+          <a href="patient-dashboard.html" class="nav-btn"
+            >العودة للوحة المريض</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <header>
+      <div class="logo-box">
+        <img src="images/logo.jpeg" alt="لوجو المستشفى" class="logo" />
+        <div>
+          <div class="hospital-name">مستشفى المغتربين</div>
+          <div class="hospital-sub">Al-Mughtaribeen Hospital</div>
+        </div>
+      </div>
+
+      <div class="header-text">
+        <h1>دليل الأطباء</h1>
+        <p>ابحث عن طبيبك المفضل واحجز موعدك بكل سهولة</p>
+      </div>
+
+      <div class="clock-box">
+        <div style="font-weight: 600; font-size: 12px; opacity: 0.8">
+          بتوقيت السودان
+        </div>
+        <div
+          id="clock"
+          style="margin-top: 2px; font-weight: 700; font-size: 18px"
+        >
+          --:--
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="hero-panel">
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="ابحث باسم الطبيب..."
+            aria-label="بحث عن طبيب"
+            autocomplete="off"
+          />
+          <select id="specializationSelect" aria-label="تصفية حسب التخصص">
+            <option value="">كل التخصصات</option>
+          </select>
+          <button type="button" class="btn ghost" id="clearFiltersBtn">
+            إعادة تعيين
+          </button>
+        </div>
+      </section>
+
+      <section class="summary-cards">
+        <div class="summary-card">
+          <div class="label">إجمالي النتائج</div>
+          <div class="value" id="resultsCount">0</div>
+          <div class="small">النتائج المعروضة حالياً</div>
+        </div>
+        <div class="summary-card">
+          <div class="label">الصفحة الحالية</div>
+          <div class="value" id="currentPageLabel">1</div>
+          <div class="small">من إجمالي الصفحات</div>
+        </div>
+      </section>
+
+      <section class="doctors-grid-section">
+        <div id="doctorsContainer" class="doctors-grid"></div>
+
+        <div id="emptyState" class="empty-state" style="display: none">
+          لا توجد نتائج مطابقة حالياً.
+        </div>
+
+        <div class="pager">
+          <button type="button" class="btn ghost" id="prevBtn">السابق</button>
+          <div id="pageInfo" class="page-info">صفحة 1</div>
+          <button type="button" class="btn ghost" id="nextBtn">التالي</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="bookingModal" class="modal-backdrop" aria-hidden="true">
+      <div class="modal" id="bookingModalContent"></div>
+    </div>
+    <div id="paymentModal" class="modal-backdrop" aria-hidden="true">
+      <div
+        class="modal"
+        id="paymentModalContent"
+        style="max-width: 500px"
+      ></div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+    <footer class="footer">
+      <p style="margin: 0">جميع الحقوق محفوظة © 2026 مستشفى المغتربين</p>
+    </footer>
+    <script src="js/token-utils.js"></script>
+    <script src="js/auth-fetch.js"></script>
+    <script src="js/app-init.js"></script>
+    <script src="js/doctors.js"></script>
+  </body>
+</html>

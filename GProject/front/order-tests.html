@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>مستشفى المغتربين — طلب فحوصات</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/order-tests.css" />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="شريط التنقل">
+      <ul>
+        <li>
+          <a href="#" id="backToConsultation" class="back-link"
+            >➔ العودة لجلسة المعاينة</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <header>
+      <div class="logo-box">
+        <img src="images/logo.jpeg" alt="لوجو المستشفى" class="logo" />
+        <div>
+          <div class="hospital-name">مستشفى المغتربين</div>
+          <div class="hospital-sub" dir="ltr">Al-Mughtaribeen Hospital</div>
+        </div>
+      </div>
+      <div class="header-text" role="banner">
+        <h1>دليل الفحوصات الطبية</h1>
+        <p>اختر الفحوصات المخبرية أو الأشعة المطلوبة للمريض</p>
+      </div>
+      <div class="clock-box">
+        <div style="font-weight: 700; font-size: 13px; opacity: 0.9">
+          بتوقيت السودان
+        </div>
+        <div
+          id="clock"
+          style="margin-top: 4px; font-weight: 700; font-size: 18px"
+        >
+          --:--
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div id="loading-overlay" class="loading-state">
+        جاري تحميل دليل الفحوصات...
+      </div>
+
+      <div class="catalog-layout" id="catalog-content" style="display: none">
+        <aside class="categories-sidebar">
+          <h3 style="margin-top: 0; padding: 0 12px; color: #33415a">
+            الأقسام الطبية
+          </h3>
+          <div id="categories-list" class="categories-list"></div>
+        </aside>
+
+        <section class="tests-section">
+          <div class="tests-header">
+            <h2 id="current-category-title" style="margin: 0; color: #0b2340">
+              اختر قسماً لعرض الفحوصات
+            </h2>
+            <div class="search-box">
+              <input
+                type="text"
+                id="search-tests"
+                placeholder="ابحث عن فحص..."
+                class="input"
+              />
+            </div>
+          </div>
+          <div id="tests-grid" class="tests-grid"></div>
+        </section>
+      </div>
+    </main>
+
+    <div id="toast-container" class="toast-container"></div>
+    <footer class="footer">
+      <p style="margin: 0">جميع الحقوق محفوظة © 2026 مستشفى المغتربين</p>
+    </footer>
+
+    <script src="js/token-utils.js"></script>
+    <script src="js/auth-fetch.js"></script>
+    <script src="js/app-init.js"></script>
+    <script src="js/order-tests.js"></script>
+  </body>
+</html>
